@@ -9,7 +9,6 @@ sys.path.insert(0, os.path.abspath("libraries"))
 import sugargame
 import sugargame.canvas
 import spyral
-import game
 
 class Activity(sugar.activity.activity.Activity):
     def __init__(self, handle):
@@ -35,6 +34,7 @@ class Activity(sugar.activity.activity.Activity):
 
 def main():
     spyral.director.init((0,0), fullscreen = False, max_fps = 30)
+    import game
     game.main()
     try:
         spyral.director.run()
