@@ -1,7 +1,7 @@
 ### CISC374 Test Launcher
 
 __author__ = "Robert Deaton"
-__version__ = "0.1"
+__version__ = "0.2"
 __license__ = "MIT"
 
 import gettext
@@ -127,8 +127,7 @@ if __name__ == '__main__':
         
     try:
         for file in files:
-            print 'python libraries/gprof2dot.py -f pstats %s.pstats | dot -Tpng -o %s.png' % (file, file)
-            r = envoy.run('python libraries/gprof2dot.py -f pstats %s.pstats | dot -Tpng -o %s.png' % (file, file))
+            r = envoy.run('python libraries/gprof2dot.py -f pstats "%s.pstats" | dot -Tpng -o "%s.png"' % (file, file))
             
     except Exception:
         print 'Could not generate image outputs from profiling. Is graphviz installed?'
