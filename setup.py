@@ -59,7 +59,10 @@ def list_files(base_dir, ignore_dirs=None, ignore_files=None):
                 
         rel_path = root[len(base_dir) + 1:]
         for f in files:
-            result.append('/'.join((rel_path, f)))
+            if rel_path:
+                result.append('/'.join((rel_path, f)))
+            else:
+                result.append(f)
 
         if ignore_dirs:
             for ignore in ignore_dirs:
