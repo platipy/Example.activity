@@ -4,8 +4,7 @@ import pygame
 import os
 import sugar.activity.activity
 import sugar.graphics.toolbutton
-
-sys.path.insert(0, os.path.abspath("libraries"))
+import libraries
 import sugargame
 import sugargame.canvas
 import spyral

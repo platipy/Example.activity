@@ -7,7 +7,7 @@ __license__ = "MIT"
 import gettext
 import sys
 import os
-sys.path.insert(0, os.path.abspath("libraries"))
+import libraries
 
 from optparse import OptionParser
 import spyral
