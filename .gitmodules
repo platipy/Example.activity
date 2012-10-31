@@ -4,3 +4,6 @@
 [submodule "libraries/sugargame"]
 	path = libraries/sugargame
 	url = gitorious@git.sugarlabs.org:~rdeaton/sugargame/rdeatons-mainline.git
+[submodule "libraries/requests"]
+	path = libraries/requests
+	url = git://github.com/kennethreitz/requests.git
