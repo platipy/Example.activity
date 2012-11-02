@@ -8,7 +8,7 @@ import gettext
 import sys
 import os
 import libraries
-
+libraries.setup_path()
 from optparse import OptionParser
 import spyral
 try:

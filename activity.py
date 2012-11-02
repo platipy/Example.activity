@@ -1,12 +1,10 @@
-import sys
-import gtk
 import pygame
-import os
 import sugar.activity.activity
 import sugar.graphics.toolbutton
 import libraries
-import sugargame
-import sugargame.canvas
+libraries.setup_path()
+import sugargame2
+import sugargame2.canvas
 import spyral
 
 class Activity(sugar.activity.activity.Activity):
@@ -14,10 +12,11 @@ class Activity(sugar.activity.activity.Activity):
         super(Activity, self).__init__(handle)
         self.paused = False
         
-        self._pygamecanvas = sugargame.canvas.PygameCanvas(self)
+        self._pygamecanvas = sugargame2.canvas.PygameCanvas(self)
         self.set_canvas(self._pygamecanvas)
         
         def run():
+            import game
             spyral.director.init((1200,900), fullscreen = False, max_fps = 30)
             game.main()
             spyral.director.run(sugar = True)
