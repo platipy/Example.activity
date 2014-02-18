@@ -1,7 +1,7 @@
 ### CISC374 Test Launcher
 
 __author__ = "Robert Deaton"
-__version__ = "0.2"
+__version__ = "0.3"
 __license__ = "MIT"
 
 import gettext
