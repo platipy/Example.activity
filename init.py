@@ -32,7 +32,12 @@ if len(r) > 0:
     version = r
 
 f = open('skel/activity.info', 'r')
-g = open('activity/activity.info', 'w')
+try:
+    g = open('activity/activity.info', 'w')
+except IOError:
+    # Create the directory and file if they don't exist
+    os.mkdir('activity');
+    g = open('activity/activity.info', 'w+')
 g.write(f.read() % {'name' : name, 'version' : version, 'service_name' : service_name})
 g.close()
 f.close()
