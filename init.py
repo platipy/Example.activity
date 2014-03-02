@@ -1,5 +1,6 @@
 import sys
 import os
+import shutil
 
 print """CISC374 Launcher Setup.
 
@@ -45,9 +46,7 @@ print 'Created activity/activity.info.'
 
 if not os.path.isfile("activity/activity.svg"):
     print 'No icon found. A placeholder has been copied to activity/activity.svg, you\nshould replace this with your own icon.'
-    # There's probably a better way to do this, but I don't have internet access at the moment
-    f = open('skel/activity.svg', 'r').read()
-    g = open('activity/activity.svg', 'w')
-    g.write(f)
+    f = 'skel/activity.svg'
+    shutil.copy(f, 'activity/activity.svg')
     
 print 'All done.'
