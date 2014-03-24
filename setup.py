@@ -155,6 +155,28 @@ class XOPackager(Packager):
         bundle_zip.close()
         print 'Wrote to %s' % self.package_path
 
+class WindowsPackager(Packager):
+    def __init__(self, builder):
+        Packager.__init__(self)
+        
+        from distutils.core import setup
+        import py2exe
+
+        self.builder = builder
+        self.package_path = os.path.join(dist_dir, activity_name + '.xo')
+
+    def package(self):
+        setup(console=['dev_launcher.py'])
+        """
+        bundle_zip = zipfile.ZipFile(self.package_path, 'w',
+                                     zipfile.ZIP_DEFLATED)
+        for f in self.builder.get_files():
+            bundle_zip.write('/'.join((source_dir, f)).strip(),
+                             '/'.join((bundle_name, f.strip())))
+        bundle_zip.close()
+        print 'Wrote to %s' % self.package_path
+        """
+
 class SourcePackager(Packager):
     def __init__(self, builder):
         Packager.__init__(self)
@@ -181,6 +203,16 @@ def cmd_dist_xo(args):
         return
    
     packager = XOPackager(Builder())
+    packager.package()
+
+def cmd_dist_windows(args):
+    '''Create a windows executable'''
+    
+    if args:
+        print 'Usage: %prog dist_windows'
+        return
+    
+    packager = WindowsPackager(Builder())
     packager.package()
 
 def cmd_fix_manifest(args):
