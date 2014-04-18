@@ -27,10 +27,13 @@ r = raw_input("Service Name (must be globally unique) [%s]: " % (service_name))
 if len(r) > 0:
     service_name = r
 
-version = '1.0'
-r = raw_input("Activity Version [1.0]: ")
+version = '1'
+r = raw_input("Activity Version (must be a natural number) [1]: ")
 if len(r) > 0:
-    version = r
+    if r.isdigit():
+        version = r
+    else:
+        print "Version numbers must be positive integers. Defaulting to '1'."
 
 f = open('skel/activity.info', 'r')
 try:
